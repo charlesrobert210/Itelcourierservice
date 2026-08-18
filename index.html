@@ -1,146 +1,488 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ITEL Courier Services</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ITEL Courier Services</title>
 
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;color:#172033;background:#fff;line-height:1.6}
-header{background:#071a35;color:white;padding:18px 6%}
-nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:auto}
-.logo{font-size:24px;font-weight:bold}
-nav a{color:white;text-decoration:none;margin-left:20px}
-.hero{background:linear-gradient(135deg,#071a35,#124a80);color:white;padding:90px 6%;text-align:center}
-.hero h1{font-size:48px;margin-bottom:20px}
-.hero p{font-size:20px;max-width:700px;margin:0 auto 30px}
-.btn{display:inline-block;background:#f5b400;color:#071a35;padding:14px 25px;border-radius:6px;text-decoration:none;font-weight:bold}
-.section{padding:65px 6%;max-width:1200px;margin:auto}
-.section h2{text-align:center;font-size:34px;margin-bottom:15px}
-.intro{text-align:center;max-width:700px;margin:0 auto 40px}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
-.card{padding:30px;border-radius:12px;background:#f4f7fa;box-shadow:0 5px 20px #0001}
-.card h3{margin-bottom:12px;color:#0b4478}
-.track{background:#eef4f8;text-align:center;padding:65px 6%}
-.track input{padding:15px;width:280px;max-width:90%;border:1px solid #bbb;border-radius:5px;margin:15px 5px}
-.contact{background:#071a35;color:white;text-align:center;padding:60px 6%}
-footer{background:#041126;color:#aaa;text-align:center;padding:25px}
-@media(max-width:700px){
-nav{flex-direction:column;gap:15px}
-nav a{margin:0 7px;font-size:14px}
-.hero h1{font-size:36px}
-.cards{grid-template-columns:1fr}
-}
-</style>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #172033;
+      background: #f5f8fc;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #073b78;
+      color: white;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #f5b400;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 22px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #f5b400;
+    }
+
+    .hero {
+      min-height: 620px;
+      padding: 80px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      background: linear-gradient(135deg, #073b78, #0d6db7);
+      color: white;
+      overflow: hidden;
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #f5b400;
+    }
+
+    .hero p {
+      font-size: 19px;
+      margin-bottom: 30px;
+      color: #e9f3ff;
+    }
+
+    .buttons a {
+      display: inline-block;
+      padding: 14px 25px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .primary {
+      background: #f5b400;
+      color: #172033;
+    }
+
+    .secondary {
+      border: 2px solid white;
+      color: white;
+    }
+
+    .shipping-scene {
+      width: 420px;
+      height: 300px;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .sun {
+      position: absolute;
+      right: 40px;
+      top: 15px;
+      width: 70px;
+      height: 70px;
+      background: #f5b400;
+      border-radius: 50%;
+    }
+
+    .cloud {
+      position: absolute;
+      background: white;
+      opacity: .85;
+      width: 90px;
+      height: 25px;
+      border-radius: 30px;
+    }
+
+    .cloud:before {
+      content: "";
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: white;
+      border-radius: 50%;
+      left: 15px;
+      top: -18px;
+    }
+
+    .cloud.one {
+      top: 60px;
+      left: 20px;
+    }
+
+    .cloud.two {
+      top: 105px;
+      right: 5px;
+      transform: scale(.7);
+    }
+
+    .sea {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 105px;
+      background: #07558e;
+      border-radius: 50% 50% 0 0;
+    }
+
+    .ship {
+      position: absolute;
+      bottom: 55px;
+      left: 40px;
+      width: 270px;
+      height: 65px;
+      background: #18283d;
+      clip-path: polygon(0 0, 100% 0, 82% 100%, 12% 100%);
+    }
+
+    .ship:before {
+      content: "";
+      position: absolute;
+      left: 45px;
+      top: -48px;
+      width: 170px;
+      height: 48px;
+      background: #e9f0f7;
+      border: 5px solid #18283d;
+    }
+
+    .containers {
+      position: absolute;
+      left: 70px;
+      top: -40px;
+      display: flex;
+      gap: 5px;
+    }
+
+    .container {
+      width: 40px;
+      height: 35px;
+      background: #f5b400;
+      border: 2px solid #18283d;
+    }
+
+    .van {
+      position: absolute;
+      bottom: 80px;
+      right: 5px;
+      width: 150px;
+      height: 70px;
+      background: white;
+      border-radius: 12px 18px 5px 5px;
+      border: 4px solid #172033;
+    }
+
+    .van:before {
+      content: "ITEL";
+      position: absolute;
+      left: 25px;
+      top: 17px;
+      color: #073b78;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .van:after {
+      content: "";
+      position: absolute;
+      right: -22px;
+      bottom: 0;
+      width: 35px;
+      height: 48px;
+      background: white;
+      border: 4px solid #172033;
+      border-left: none;
+      border-radius: 0 12px 5px 0;
+    }
+
+    .wheel {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      background: #172033;
+      border-radius: 50%;
+      bottom: -18px;
+    }
+
+    .wheel.one {
+      left: 20px;
+    }
+
+    .wheel.two {
+      right: 15px;
+    }
+
+    section {
+      padding: 70px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 36px;
+      color: #073b78;
+      margin-bottom: 10px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 35px 25px;
+      text-align: center;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0,0,0,.08);
+    }
+
+    .card .icon {
+      font-size: 50px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      color: #073b78;
+      margin-bottom: 10px;
+    }
+
+    .about {
+      background: white;
+      text-align: center;
+    }
+
+    .about p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 18px;
+    }
+
+    .contact {
+      background: #073b78;
+      color: white;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 35px;
+      margin-bottom: 15px;
+    }
+
+    .contact a {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 14px 28px;
+      background: #f5b400;
+      color: #172033;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #061d38;
+      color: #cbd8e8;
+      text-align: center;
+      padding: 25px;
+    }
+
+    @media (max-width: 800px) {
+      header {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      nav a {
+        margin: 0 7px;
+        font-size: 14px;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 55px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .shipping-scene {
+        transform: scale(.85);
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-<nav>
-<div class="logo">ITEL COURIER SERVICES</div>
-<div>
-<a href="#home">Home</a>
-<a href="#services">Services</a>
-<a href="#tracking">Track</a>
-<a href="#contact">Contact</a>
-</div>
-</nav>
-</header>
+  <header>
+    <div class="logo">ITEL <span>COURIER SERVICES</span></div>
 
-<section class="hero" id="home">
-<h1>Fast. Secure. Delivered.</h1>
-<p>
-Professional courier and logistics solutions for documents,
-parcels and business shipments — handled with care from pickup to delivery.
-</p>
-<a class="btn" href="#contact">Request a Delivery</a>
-</section>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<section class="section" id="services">
-<h2>Our Services</h2>
-<p class="intro">
-Reliable courier solutions designed for individuals and businesses.
-</p>
+  <section class="hero" id="home">
 
-<div class="cards">
+    <div class="hero-text">
+      <h1>Moving Your World <span>Safely.</span></h1>
 
-<div class="card">
-<h3>Express Delivery</h3>
-<p>Time-sensitive documents and parcels delivered with priority handling.</p>
-</div>
+      <p>
+        Reliable courier and international shipping solutions
+        for documents, parcels and business shipments.
+      </p>
 
-<div class="card">
-<h3>International Courier</h3>
-<p>Secure shipment solutions for deliveries across international destinations.</p>
-</div>
+      <div class="buttons">
+        <a class="primary" href="#services">Our Services</a>
+        <a class="secondary" href="#contact">Contact Us</a>
+      </div>
+    </div>
 
-<div class="card">
-<h3>Business Logistics</h3>
-<p>Dependable courier support for companies, documents and regular shipments.</p>
-</div>
+    <div class="shipping-scene">
 
-</div>
-</section>
+      <div class="sun"></div>
 
-<section class="track" id="tracking">
-<h2>Track Your Shipment</h2>
-<p>Enter your tracking number to check your shipment status.</p>
+      <div class="cloud one"></div>
+      <div class="cloud two"></div>
 
-<input type="text" id="trackingNumber" placeholder="Enter tracking number">
-<button class="btn" onclick="trackShipment()">Track Shipment</button>
+      <div class="sea"></div>
 
-<p id="result" style="margin-top:20px;font-weight:bold"></p>
-</section>
+      <div class="ship">
+        <div class="containers">
+          <div class="container"></div>
+          <div class="container"></div>
+          <div class="container"></div>
+        </div>
+      </div>
 
-<section class="section">
-<h2>Why Choose ITEL?</h2>
+      <div class="van">
+        <div class="wheel one"></div>
+        <div class="wheel two"></div>
+      </div>
 
-<div class="cards">
+    </div>
 
-<div class="card">
-<h3>Reliable</h3>
-<p>We focus on careful handling and dependable delivery.</p>
-</div>
+  </section>
 
-<div class="card">
-<h3>Secure</h3>
-<p>Your documents and parcels receive professional attention.</p>
-</div>
+  <section id="services">
 
-<div class="card">
-<h3>Responsive</h3>
-<p>Our customer-focused approach keeps communication simple.</p>
-</div>
+    <div class="section-title">
+      <h2>Our Services</h2>
+      <p>Professional shipping solutions for every destination.</p>
+    </div>
 
-</div>
-</section>
+    <div class="services">
 
-<section class="contact" id="contact">
-<h2>Ready to Ship?</h2>
-<p>Contact ITEL Courier Services for your next delivery.</p>
-<br>
-<a class="btn" href="mailto:info@itelcourierservice.com">Contact Us</a>
-</section>
+      <div class="card">
+        <div class="icon">🚐</div>
+        <h3>Courier Delivery</h3>
+        <p>
+          Fast and dependable local and international parcel delivery.
+        </p>
+      </div>
 
-<footer>
-<p>©️ 2026 ITEL Courier Services. All rights reserved.</p>
-</footer>
+      <div class="card">
+        <div class="icon">🚢</div>
+        <h3>Sea Freight</h3>
+        <p>
+          International cargo transportation for larger shipments.
+        </p>
+      </div>
 
-<script>
-function trackShipment(){
-const number=document.getElementById("trackingNumber").value.trim();
-const result=document.getElementById("result");
+      <div class="card">
+        <div class="icon">✈️</div>
+        <h3>Air Freight</h3>
+        <p>
+          Efficient air shipping solutions for time-sensitive deliveries.
+        </p>
+      </div>
 
-if(number===""){
-result.textContent="Please enter a tracking number.";
-return;
-}
+    </div>
 
-result.textContent="Tracking number received. Shipment status will be updated when tracking information is available.";
-}
-</script>
+  </section>
+
+  <section class="about" id="about">
+
+    <div class="section-title">
+      <h2>About ITEL</h2>
+    </div>
+
+    <p>
+      ITEL Courier Services is focused on providing dependable
+      courier, logistics and international shipping solutions.
+      We help individuals and businesses move important packages
+      efficiently and securely.
+    </p>
+
+  </section>
+
+  <section class="contact" id="contact">
+
+    <h2>Ready to Ship?</h2>
+
+    <p>
+      Contact ITEL Courier Services for your delivery and shipping needs.
+    </p>
+
+    <a href="mailto:info@itelcourierservice.com">
+      Email ITEL Courier Services
+    </a>
+
+  </section>
+
+  <footer>
+    <p>©️ 2026 ITEL Courier Services. All rights reserved.</p>
+  </footer>
 
 </body>
 </html>
