@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ITEL Courier Services - Admin Login</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: #f2f6fc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 430px;
+  background: white;
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+  text-align: center;
+}
+
+.logo {
+  width: 75px;
+  height: 75px;
+  margin: 0 auto 20px;
+  background: #f5bd00;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #08285c;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+h1 {
+  color: #08285c;
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.subtitle {
+  color: #68758a;
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+  text-align: left;
+  margin: 15px 0 7px;
+  color: #172a4d;
+  font-weight: 700;
+}
+
+input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #d5dce8;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #176dcc;
+}
+
+button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 16px;
+  border: none;
+  border-radius: 10px;
+  background: #1268c9;
+  color: white;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0d56a8;
+}
+
+#message {
+  margin-top: 18px;
+  font-weight: 600;
+}
+
+.back {
+  display: inline-block;
+  margin-top: 25px;
+  color: #1268c9;
+  text-decoration: none;
+  font-weight: 600;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+  <div class="logo">IC</div>
+
+  <h1>Admin Login</h1>
+
+  <div class="subtitle">
+    ITEL Courier Services
+  </div>
+
+  <form id="loginForm">
+
+    <label for="username">Username</label>
+    <input
+      type="text"
+      id="username"
+      placeholder="Enter username"
+      required
+    >
+
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      placeholder="Enter password"
+      required
+    >
+
+    <button type="submit">
+      LOGIN
+    </button>
+
+  </form>
+
+  <div id="message"></div>
+
+  <a class="back" href="index.html">
+    ← Back to Website
+  </a>
+
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+  const message = document.getElementById("message");
+
+  /*
+    This is currently a demonstration login page.
+    Do not use real passwords here because GitHub Pages
+    is a public static website.
+  */
+
+  if (username === "admin" && password === "admin123") {
+    message.style.color = "green";
+    message.textContent = "Login successful. Admin dashboard coming soon.";
+  } else {
+    message.style.color = "red";
+    message.textContent = "Invalid username or password.";
+  }
+});
+</script>
+
+</body>
+</html>
